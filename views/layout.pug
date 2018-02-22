@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/Video.js')
+    script(src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js")
+    script(src='/javascripts/artyomjs/build/artyom.window.js')
+    script(src='/javascripts/whammy.js')
+    script(src='/javascripts/clmtrackr.js')
+    script(src='/javascripts/tracking/build/tracking-min.js')
+    script(src='/javascripts/tracking/build/data/face-min.js')
+    script(src='/javascripts/tracking/build/data/eye.js')
+    script(src='/javascripts/dat.gui/build/dat.gui.min.js')
+    script(src='/javascripts/proton-js/build/proton.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  body(onload="startDifTrack()")
+    block content

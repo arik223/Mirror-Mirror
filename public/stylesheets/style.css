@@ -1,0 +1,35 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: black;
+}
+
+a {
+  color: #00B7FF;
+}
+container{
+  position: relative;
+}
+video, canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-transform : scaleX(-1);
+  -webkit-transform : scaleX(-1);
+  transform : scaleX(-1);
+  vertical-align: bottom;
+  
+}
+
+button {
+  margin-top: 600px;
+}
+
+video {
+
+  object-fit: fill;
+}
+
+#canvas {
+  overflow: hidden;
+}
+

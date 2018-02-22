@@ -1,0 +1,62 @@
+{
+  "_from": "proton-js",
+  "_id": "proton-js@3.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-aoiZJN7ZCvLhtAiWJ5Bl59L8PeciCbGZCIWcEf++gOPUv/a/Tu8nEpB08IpW7dlYLEFCs+jyUwS/VswixV7O2A==",
+  "_location": "/proton-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "proton-js",
+    "name": "proton-js",
+    "escapedName": "proton-js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/proton-js/-/proton-js-3.1.1.tgz",
+  "_shasum": "3016234b72aab80de8188844a6f1130e880f355a",
+  "_spec": "proton-js",
+  "_where": "/Users/shaposha/Documents/MirrorProject",
+  "authors": [
+    "a-jie <a-jie.cn@msn.com>"
+  ],
+  "bugs": {
+    "url": "https://github.com/a-jie/Proton/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Proton is an easily customizable html5 particle engine including six different types of renderers.",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "concurrently": "^3.5.1",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-license": "^0.5.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "serve": "^6.4.8"
+  },
+  "homepage": "http://a-jie.github.io/Proton",
+  "license": "MIT",
+  "main": "./build/proton.min.js",
+  "name": "proton-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-jie/Proton.git"
+  },
+  "scripts": {
+    "build": "rollup -c --pub",
+    "page": "node ./script/makeexamplepage",
+    "start": "concurrently --names \"ROLLUP,HTTP\" -c \"bgBlue.bold,bgGreen.bold\" \"rollup -c -w -m inline\" \"serve --port 3001\""
+  },
+  "version": "3.1.1"
+}
