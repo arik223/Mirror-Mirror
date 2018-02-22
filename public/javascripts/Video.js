@@ -226,12 +226,19 @@ cc.globalAlpha = .5;
             //cc.drawImage(img, -img.width/5, -img.height/2, sizeOfGlassesX, 50);
             cc.restore(); 
         } else if (filterName == "Slime"){
-            if(video.ended){
-                video.play();
+            console.log((positions[60][1] - positions[57][1]))
+            if((positions[60][1] - positions[57][1]) < -20){
+                runSlimeAnimation(positions);
             }
-            cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-            cc.drawImage(video,0,0,canvasInput.width, canvasInput.height);
         }
+    }
+    function runSlimeAnimation(positions){
+        if(video.ended){
+            video.play();
+        }
+        requestAnimationFrame(runSlimeAnimation);
+        cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
+        cc.drawImage(video,0,0,canvasInput.width, canvasInput.height);
     }
         //This draws the green dots of the face
        // ctracker.draw(canvasInput);
