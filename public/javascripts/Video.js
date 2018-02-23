@@ -57,7 +57,7 @@ function startDifTrack(){
     };
     annyang.addCommands(commands);
     annyang.start();
-    //bye();
+    bye();
    // draw();
     use2DCanvas();
   }
@@ -78,7 +78,7 @@ function use2DCanvas(){
     
     img = document.createElement("img");
 
-    img.src = "images/halo.png"
+    img.src = "images/patrick.png"
     filterName = "Slime"    
 
     var video = document.createElement("video");
@@ -228,17 +228,17 @@ cc.globalAlpha = .5;
         } else if (filterName == "Slime"){
             console.log((positions[60][1] - positions[57][1]))
             if((positions[60][1] - positions[57][1]) < -20){
+                if(video.ended){
+                    video.play();
+                }
                 runSlimeAnimation(positions);
             }
         }
     }
     function runSlimeAnimation(positions){
-        if(video.ended){
-            video.play();
-        }
-        requestAnimationFrame(runSlimeAnimation);
-        cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-        cc.drawImage(video,0,0,canvasInput.width, canvasInput.height);
+            requestAnimationFrame(runSlimeAnimation);
+            cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
+            cc.drawImage(video,0,0,canvasInput.width, canvasInput.height);
     }
         //This draws the green dots of the face
        // ctracker.draw(canvasInput);
