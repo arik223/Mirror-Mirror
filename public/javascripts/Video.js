@@ -1,14 +1,14 @@
  var img;
  var filterName;
  var dayOrNight;
- var video;
+ var mp4;
  var starsDone = false;
 
  var alpha = 0,   /// current alpha value
  delta = 0.1;
 
 var filterList =[{
-    "filterName": "fountain",
+    "filterName": "aura",
     "source":"images/particle_fountain.mp4"  
     },{
     "filterName": "aura",
@@ -22,6 +22,9 @@ var filterList =[{
     },{
     "filterName": "halo",
     "source":"images/halo.png"       
+    },{
+    "filterName": "Slime",
+    "source":"images/goo.mp4"  
 }]
 
 function startDifTrack(){
@@ -49,7 +52,7 @@ function startDifTrack(){
                 img.src = rand.source;
                 filterName = rand.filterName;
             } else {
-                video.src = rand.source;
+                mp4.src = rand.source;
                 filterName = rand.filterName;
             }
         }
@@ -68,7 +71,6 @@ function use2DCanvas(){
     var ctracker = new clm.tracker();
     ctracker.init();
     ctracker.start(videoInput);
-    var video;
    
     var canvasInput = document.getElementById('canvas');
     var cc = canvasInput.getContext('2d');
@@ -78,20 +80,17 @@ function use2DCanvas(){
     
     img = document.createElement("img");
 
-    video = document.createElement("video");
-    video.src = "images/goo.mp4";
-    video.addEventListener('loadeddata', function() {
-        video.play();  // start playing
-        update(); //Start rendering
+    filterName = "Slime";
+
+    mp4 = document.createElement("video");
+    mp4.src = "images/goo.mp4";
+    mp4.addEventListener('loadeddata', function() {
+        mp4.play();  // start playing
     });
-<<<<<<< HEAD
-    
-=======
 
    //filterName = "Morn";
 
     //cc.globalAlpha = .5;
->>>>>>> e91b7f8efa6f70deb9b08650b09a0beb7486c543
     function drawLoop(){
         requestAnimationFrame(drawLoop);
         //Gets positions
@@ -185,9 +184,18 @@ function use2DCanvas(){
             cc.restore(); 
         } else if (filterName == "Slime"){
             console.log((positions[60][1] - positions[57][1]))
-            if((positions[60][1] - positions[57][1]) < -10){
-                if(video.ended){
-                    video.play();
+            if((positions[60][1] - positions[57][1]) < -25){
+                if(mp4.ended){
+                    mp4.play();
+                }
+                runSlimeAnimation(positions);
+            }
+        } else if (filterName == "aura"){
+            console.log((positions[60][1] - positions[57][1]))
+            if((positions[60][1] - positions[57][1]) < -25){
+                console.log("Playing aura")
+                if(mp4.ended){
+                    mp4.play();
                 }
                 runSlimeAnimation(positions);
             }
@@ -196,13 +204,14 @@ function use2DCanvas(){
     function runSlimeAnimation(positions){
             requestAnimationFrame(runSlimeAnimation);
             cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-            cc.drawImage(video,0,-50,canvasInput.width, canvasInput.height+50);
+            cc.drawImage(mp4,0,-50,canvasInput.width, canvasInput.height+50);
     }
         //This draws the green dots of the face
        // ctracker.draw(canvasInput);
 
     drawLoop();
 }
+    
 function findAngle(positions){
     var angleRadians = Math.atan2(positions[15][1] - positions[19][1], positions[15][0] - positions[19][0]);
     return angleRadians;
