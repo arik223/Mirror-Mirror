@@ -90,7 +90,7 @@ function use2DCanvas(){
 
    //filterName = "Morn";
 
-cc.globalAlpha = .5;
+    //cc.globalAlpha = .5;
     function drawLoop(){
         requestAnimationFrame(drawLoop);
         //Gets positions
@@ -227,7 +227,7 @@ cc.globalAlpha = .5;
             cc.restore(); 
         } else if (filterName == "Slime"){
             console.log((positions[60][1] - positions[57][1]))
-            if((positions[60][1] - positions[57][1]) < -20){
+            if((positions[60][1] - positions[57][1]) < -10){
                 if(video.ended){
                     video.play();
                 }
@@ -238,14 +238,13 @@ cc.globalAlpha = .5;
     function runSlimeAnimation(positions){
             requestAnimationFrame(runSlimeAnimation);
             cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-            cc.drawImage(video,0,0,canvasInput.width, canvasInput.height);
+            cc.drawImage(video,0,-50,canvasInput.width, canvasInput.height+50);
     }
         //This draws the green dots of the face
        // ctracker.draw(canvasInput);
 
     drawLoop();
 }
-
 function findAngle(positions){
     var angleRadians = Math.atan2(positions[15][1] - positions[19][1], positions[15][0] - positions[19][0]);
     return angleRadians;
