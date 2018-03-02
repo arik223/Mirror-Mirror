@@ -3,7 +3,7 @@
  var dayOrNight;
  var mp4;
  var starsDone = false;
-
+ var canvasHeight;
  var alpha = 0,   /// current alpha value
  delta = 0.1;
 
@@ -16,9 +16,6 @@ var filterList =[{
     },{
     "filterName": "aura",
     "source":"images/redaura.mp4"   
-    },{
-    "filterName": "aura",
-    "source":"images/greenaura.mp4"
     },{
     "filterName": "halo",
     "source":"images/halo.png"       
@@ -44,14 +41,20 @@ function startDifTrack(){
     function videoError(e) {
           alert("There was an error with your video")
     }
+    var canvas = document.getElementById('canvas'),
+    context = canvas.getContext('2d');
+    canvasHeight = canvas.height;
+
     var commands = {
         'switch': function() {
             print("switching")
             var rand = filterList[Math.floor(Math.random() * filterList.length)];
             if(rand.filterName == "halo"){
+                $(context.canvas).css("height", "75%");
                 img.src = rand.source;
                 filterName = rand.filterName;
             } else {
+                $(context.canvas).css("height", "100%");
                 mp4.src = rand.source;
                 filterName = rand.filterName;
             }
@@ -80,8 +83,8 @@ function use2DCanvas(){
     
     img = document.createElement("img");
 
-    filterName = "Slime";
-    img.src = 'images/halo.png';
+    filterName = "halo";
+    img.src = "images/halo.png"
 
     mp4 = document.createElement("video");
     mp4.src = "images/goo.mp4";
