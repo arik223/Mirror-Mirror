@@ -11,7 +11,7 @@ container{
 }
 video, canvas {
   position: absolute;
-  height: 100%;
+
   width: 100%;
   -o-transform : scaleX(-1);
   -webkit-transform : scaleX(-1);
@@ -25,11 +25,13 @@ button {
 }
 
 video {
-
+  height: 50%;
+  margin-top: 25%;
   object-fit: fill;
 }
 
 #canvas {
+  height: 75%;
   overflow: hidden;
 }
 

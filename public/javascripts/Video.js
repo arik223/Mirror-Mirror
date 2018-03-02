@@ -81,6 +81,7 @@ function use2DCanvas(){
     img = document.createElement("img");
 
     filterName = "Slime";
+    img.src = 'images/halo.png';
 
     mp4 = document.createElement("video");
     mp4.src = "images/goo.mp4";
@@ -179,12 +180,12 @@ function use2DCanvas(){
             cc.save(); 
             cc.translate(positions[33][0], positions[33][1]);
             cc.rotate(Math.atan(slope));
-            cc.drawImage(img, -sizeOfGlassesX/2, -sizeOfGlassesY*5.5, sizeOfGlassesX, sizeOfGlassesY)
+            cc.drawImage(img, -sizeOfGlassesX/2, -sizeOfGlassesY*3.5, sizeOfGlassesX, sizeOfGlassesY)
             //cc.drawImage(img, -img.width/5, -img.height/2, sizeOfGlassesX, 50);
             cc.restore(); 
         } else if (filterName == "Slime"){
             console.log((positions[60][1] - positions[57][1]))
-            if((positions[60][1] - positions[57][1]) < -25){
+            if((positions[60][1] - positions[57][1]) < -15){
                 if(mp4.ended){
                     mp4.play();
                 }
@@ -204,7 +205,7 @@ function use2DCanvas(){
     function runSlimeAnimation(positions){
             requestAnimationFrame(runSlimeAnimation);
             cc.clearRect(0, 0, canvasInput.width, canvasInput.height);
-            cc.drawImage(mp4,0,-50,canvasInput.width, canvasInput.height+50);
+            cc.drawImage(mp4,0,-50,canvasInput.width, canvasInput.height);
     }
         //This draws the green dots of the face
        // ctracker.draw(canvasInput);
