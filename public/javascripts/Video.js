@@ -63,7 +63,7 @@ function startDifTrack(){
     };
     annyang.addCommands(commands);
     annyang.start();
-    bye();
+    //bye();
    // draw();
     use2DCanvas();
   }
